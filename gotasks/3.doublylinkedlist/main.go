@@ -6,27 +6,46 @@ type Node struct{
 	data int
 	prev *Node
 	next *Node
-	
-
 }
 
-var head_node *Node
-var tail_node *Node
+type list struct{
+	head *Node
+	tail *Node
+}
 
-func (n *Node) insert(nd int){
-	if
+func (l *list) insert(nd int){
+		temp := &Node{nd, nil, nil}
+		if l.head == nil{
+			l.head = temp
+			l.tail = temp
+		}else{
+			p := l.head
+			for p.next != nil{
+				p = p.next
+			}
+			temp.prev = p
+			p.next = temp
+			l.tail = temp
+		}
+		fmt.Println("Element insereted ",nd)
 }
 
 
+func (l *list) display(){
+	p := l.head
+	for p!=nil{
+		fmt.Printf("%d -> ", p.data)
+		p=p.next
+	}
+	fmt.Print("Null")
+}
 
-// func main(){
-// 	head_node := Node{}
-// 	second_node := Node{4, &head_node, nil}
-// 	head_node.next = &second_node
+func main(){
+	a := list{}
+	a.insert(5)
+	a.insert(7)
+	a.insert(10)
+	a.insert(20)
+	a.display()
 
-// 	for i:=1; i!=0; {
-// 		fmt.Printf("%d ", head_node.data)
-// 		head_node = *head_node.next
-// 	}
-	// fmt.Println(head_node)
-// }
+}
