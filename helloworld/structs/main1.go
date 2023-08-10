@@ -12,7 +12,9 @@ func (p Point) IsAbove(y float64) bool{
 
 func main(){
 	p := Point{2.0, 4.0}
-	fmt.Println(p)
-	fmt.Println(p.IsAbove(5))
+	ps := &p
+
+	fmt.Println(ps)
+	fmt.Println( p.IsAbove(3.0))
 
 }

@@ -9,7 +9,7 @@ type Student struct{
 
 func main(){
 	s:= Student{11, "Jack"}
-
+	// s:= Student{12,"Jack"}
 	ps:= &s
 	fmt.Println(ps)
 
@@ -17,6 +17,6 @@ func main(){
 	fmt.Println(ps.Name)
 
 	ps.RollNumber = 31
-	fmt.Println(ps)
+	fmt.Println(s)
 
 }

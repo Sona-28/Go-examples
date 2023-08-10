@@ -9,6 +9,7 @@ type Point1 struct{
 func (p *Point1) Translate(dx, dy float64){
 	p.X = p.X+dx
 	p.Y = p.Y+dy
+	fmt.Println(p)
 }
 
 func main(){

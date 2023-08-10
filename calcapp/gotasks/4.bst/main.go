@@ -18,20 +18,20 @@ func (n *node) insert(root *node, k int) *node{
 		newnode := node{k, nil, nil}
 		fmt.Println("The element is inserted ",k)
 		return &newnode
-	}else{
+	}
 		if k < root.key{
 			root.left = n.insert(root.left,k)
 		}else{
 			root.right = n.insert(root.right,k)
 		}
-	}
+	
 	return root
 }
 
-func (n *node) search(cur *node, k int, parent *node) *node{
+func (n *node) search(cur *node, k int) *node{
 	start := time.Now()
 	for ;cur!=nil && cur.key!=k;{
-		parent = cur
+		// parent = cur
 		if k<cur.key{
 			cur = cur.left
 		}else{
@@ -44,13 +44,14 @@ func (n *node) search(cur *node, k int, parent *node) *node{
 }
 
 func main(){
-	var root *node = nil
-	root = root.insert(root,49)
-	root = root.insert(root,46)
-	root = root.insert(root,80)
-	root = root.insert(root,48)
+	root:= &node{}
+	//var root *node = nil
+	root = root.insert(root,10)
 	root = root.insert(root,30)
-	root = root.insert(root,50)
-	r := root.search(root, 46, nil)
-	fmt.Print(r)
+	root = root.insert(root,5)
+	root = root.insert(root,31)
+	root = root.insert(root,40)
+	// root = root.insert(root,50)
+	r := root.search(root, 10)
+	fmt.Print(r.key,r.left.key, r.right.key)
 }
